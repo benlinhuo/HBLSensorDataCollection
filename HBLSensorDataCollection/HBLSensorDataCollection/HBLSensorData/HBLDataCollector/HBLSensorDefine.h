@@ -43,7 +43,7 @@ static NSString * const HBL_ALTITUDE = @"TYPE_ALTITUDE";
 static NSString * const HBL_ALTITUDE_NAME = @"海拔";
 
 static BOOL const HBL_BACKGROUND_LOCATION_ENABLE = NO;
-static BOOL const HBL_SENSORDATA_LOG_ENABLED = NO; // sensor log 开关
+static BOOL const HBL_SENSORDATA_LOG_ENABLED = YES; // log主要用于调试使用，所以加了个开关。 sensor log 开关
 
 
 #endif /* HBLSensorDefine_h */

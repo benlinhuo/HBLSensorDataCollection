@@ -40,6 +40,9 @@ static NSTimeInterval const defaultCollectInterval = 5; // 1 second
     return instance;
 }
 
+/**
+ * 关于存储到数据库的数据，可以直接使用sqlite3的工具查看，比如 Datum-Lite 直接apptore搜索
+ */
 - (instancetype)init {
     self = [super init];
     if (self && [self isEnableCollector]) {
@@ -138,20 +141,20 @@ static NSTimeInterval const defaultCollectInterval = 5; // 1 second
 - (BOOL)isEnableCollector {
     return YES; // 测试用
     
-#if TARGET_IPHONE_SIMULATOR
-    return NO;
-#elif TARGET_OS_IPHONE
-    if([HBLUrlForRequest defaultUrlType] != HBLUrlTypeProduct ||
-       ![HBLLoginConfigManager sharedInstance].isShowWeiXinLogin) {
-        return NO;
-    }
-    CGFloat version = [UIDevice currentDevice].systemVersion.floatValue;
-    // iphone 6/6p 以下（包括），不做收集
-    if (version < 9.0 || [self Low6And6P]) {
-        return NO;
-    }
-    return YES;
-#endif
+//#if TARGET_IPHONE_SIMULATOR
+//    return NO;
+//#elif TARGET_OS_IPHONE
+//    if([HBLUrlForRequest defaultUrlType] != HBLUrlTypeProduct ||
+//       ![HBLLoginConfigManager sharedInstance].isShowWeiXinLogin) {
+//        return NO;
+//    }
+//    CGFloat version = [UIDevice currentDevice].systemVersion.floatValue;
+//    // iphone 6/6p 以下（包括），不做收集
+//    if (version < 9.0 || [self Low6And6P]) {
+//        return NO;
+//    }
+//    return YES;
+//#endif
 }
 
 // iphone 6/6p 以下（包括），不做收集
