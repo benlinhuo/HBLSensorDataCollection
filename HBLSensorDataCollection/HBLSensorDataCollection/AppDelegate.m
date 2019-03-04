@@ -19,6 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    // 使用真机运行，拿到数据会更多
+    // 后台开始定位
+    [[HBLDataManager shared] backgroundStoreLocation:launchOptions];
+
     // app 一启动就收集传感器数据
     [[HBLDataManager shared] startCollectLocation];
     
